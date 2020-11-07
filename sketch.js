@@ -68,19 +68,19 @@ function setup() {
   make_map();
   
   up_button = createButton('up');
-  up_button.position(700, 100);
+  up_button.position(windowWidth/2 - 55, windowHeight/2 - windowHeight*3/4/2 - 20);
   up_button.mousePressed(go_up);
   
   down_button = createButton('down');
-  down_button.position(700, 700);
+  down_button.position(windowWidth/2 - 55, windowHeight/2 + windowHeight*3/4/2 - 20);
   down_button.mousePressed(go_down);
   
   left_button = createButton('left');
-  left_button.position(400, 400);
+  left_button.position(windowWidth/2 - windowHeight*3/4/2 - 55, windowHeight/2 - 27);
   left_button.mousePressed(go_left);
   
   right_button = createButton('right');
-  right_button.position(1000, 400);
+  right_button.position(windowWidth/2 + windowHeight*3/4/2 - 55, windowHeight/2 - 27);
   right_button.mousePressed(go_right);
 }
 
@@ -118,6 +118,11 @@ function go_right() {
 
 function windowResized() {
   resizeCanvas(windowWidth, windowHeight);
+
+  up_button.position(windowWidth/2 - 55, windowHeight/2 - windowHeight*3/4/2 - 20);
+  down_button.position(windowWidth/2 - 55, windowHeight/2 + windowHeight*3/4/2 - 20);
+  left_button.position(windowWidth/2 - windowHeight*3/4/2 - 55, windowHeight/2 - 27);
+  right_button.position(windowWidth/2 + windowHeight*3/4/2 - 55, windowHeight/2 - 27);
 }
 
 function draw() {
@@ -158,9 +163,11 @@ function draw_ui() {
 	draw_map();
 	
 	fill(color('white'));
-	square(500, 200, 400);
-	fill(color('black'));
-	text('room type: ' + map[player_pos.x][player_pos.y], 520, 220);
+	square(windowWidth/2 - windowHeight*3/4/2, windowHeight/2 - windowHeight*3/4/2, windowHeight*3/4, 20);
+  fill(color('black'));
+  textAlign(CENTER);
+  textSize(24);
+	text('ROOM TYPE: ' + map[player_pos.x][player_pos.y], windowWidth/2, windowHeight/2);
 	
 }
 
