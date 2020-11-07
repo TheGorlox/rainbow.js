@@ -2,6 +2,10 @@ var map_size = 10;
 var map = [];
 var starting_room = new Object();
 var player_pos;
+var up_button;
+var down_button;
+var left_button;
+var right_button;
 
 fps = 2**5;
 
@@ -62,6 +66,54 @@ function setup() {
   frameRate(fps);
   
   make_map();
+  
+  up_button = createButton('up');
+  up_button.position(700, 100);
+  up_button.mousePressed(go_up);
+  
+  down_button = createButton('down');
+  down_button.position(700, 700);
+  down_button.mousePressed(go_down);
+  
+  left_button = createButton('left');
+  left_button.position(400, 400);
+  left_button.mousePressed(go_left);
+  
+  right_button = createButton('right');
+  right_button.position(1000, 400);
+  right_button.mousePressed(go_right);
+}
+
+function go_up() {
+	if(player_pos.y - 1 < 0)
+		return;
+	if(map[player_pos.x][player_pos.y - 1] == 0)
+		return;
+	player_pos.y -= 1;
+}
+
+function go_down() {
+	if(player_pos.y + 1 >= map_size)
+		return;
+	if(map[player_pos.x][player_pos.y + 1] == 0)
+		return;
+	player_pos.y += 1;
+}
+
+function go_left() {
+	if(player_pos.x - 1 < 0)
+		return;
+	if(map[player_pos.x - 1][player_pos.y] == 0)
+		return;
+	player_pos.x -= 1;
+}
+
+function go_right() {
+	if(player_pos.x + 1 >= map_size)
+		return;
+	if(map[player_pos.x + 1][player_pos.y] == 0)
+		return;
+	player_pos.x += 1;
 }
 
 function windowResized() {
@@ -104,6 +156,12 @@ function draw() {
 
 function draw_ui() {
 	draw_map();
+	
+	fill(color('white'));
+	square(500, 200, 400);
+	fill(color('black'));
+	text('room type: ' + map[player_pos.x][player_pos.y], 520, 220);
+	
 }
 
 function draw_map() {
