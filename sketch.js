@@ -84,6 +84,19 @@ function setup() {
   right_button.mousePressed(go_right);
 }
 
+function keyPressed() {
+	let keyIndex = -1;
+	if (key == 'w' || keyCode == UP_ARROW) {
+		go_up();
+	} else if (key == 'a' || keyCode == LEFT_ARROW) {
+		go_left();
+	} else if (key == 's' || keyCode == DOWN_ARROW) {
+		go_down();
+	} else if (key == 'd' || keyCode == RIGHT_ARROW) {
+		go_right();
+	} 
+  }
+
 function go_up() {
 	if(player_pos.y - 1 < 0)
 		return;
