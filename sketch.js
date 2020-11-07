@@ -1,24 +1,31 @@
 function setup() {
-  createCanvas(400, 400);
+  createCanvas(windowWidth, windowHeight);
+}
+
+function windowResized() {
+  resizeCanvas(windowWidth, windowHeight);
 }
 
 function draw() {
-  background(220);
-  var width = 10;
-  var height = 10;
-  var colors = 3;
+
+  background(255, 204, 0);
+
+  colors = [0xFF0000, 0x00FF00, 0x0000FF];
+
+  tileGapSize = 8;
+  tileCountHoriz = 10;
+  tileCountVert = 10;
+  var tileScale = ((windowHeight - 2*tileGapSize) / tileCountVert) - tileGapSize;
   
-  size = 100;
-  
-  // quad(0,0,size,0,size,size,0,size,0,size);
-  scale = 10;
-  
-  for (var i=0; i<width; i++) {
-     for (var j=0; j<height; j++) {
-       x = scale * i;
-       y = scale * j;
-      // quad(x,y, x+scale,j,x+scale,j+scale,i,j+scale);
-       square(x, y, scale);
+  for (var i=0; i<tileCountHoriz; i++) {
+     for (var j=0; j<tileCountVert; j++) {
+
+       x = tileScale * i + tileGapSize*(i+1) + ((windowWidth - tileCountHoriz * (tileScale + tileGapSize) - tileGapSize)/2);
+       y = tileScale * j + tileGapSize*(j+1);
+
+       square(x, y, tileScale);
+
     }
   }
+
 }
