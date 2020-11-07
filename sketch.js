@@ -46,6 +46,14 @@ function make_map() {
 	  }
   }
   
+  for(let i = 0; i < map_size; ++i) {
+	  for(let j = 0; j < map_size; ++j) {
+		  if(map[i][j] != 0) {
+			  map[i][j] = Math.floor(Math.random() * 3) + 1;
+		  }
+	  }
+  }
+  
   console.log(map);
 }
 
@@ -104,17 +112,18 @@ function draw_map() {
 		  switch(map[i][j]) {
 			  case 0:
 			  fill(color('black'));
-			  square(100+i*20,100+j*20, 20);
 			  break;
 			  case 1:
 			  fill(color('red'));
-			  square(100+i*20,100+j*20, 20);
 			  break;
 			  case 2:
 			  fill(color('blue'));
-			  square(100+i*20,100+j*20, 20);
+			  break;
+			  case 3:
+			  fill(color('green'));
 			  break;
 		  }
+		  square(100+i*20,100+j*20, 20);
 	  }
 	}
 	fill(color('white'));
