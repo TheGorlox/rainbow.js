@@ -8,7 +8,6 @@ var left_button;
 var right_button;
 
 fps = 2**5;
-sizeOffset = 4;
 
 function make_map() {
 	for(let i = 0; i < map_size; ++i) {
@@ -63,7 +62,7 @@ function make_map() {
 }
 
 function setup() {
-  createCanvas(windowWidth-sizeOffset, windowHeight-sizeOffset);
+  createCanvas(windowWidth, windowHeight);
   frameRate(fps);
   
   make_map();
@@ -131,7 +130,7 @@ function go_right() {
 }
 
 function windowResized() {
-  resizeCanvas(windowWidth-sizeOffset, windowHeight-sizeOffset);
+  resizeCanvas(windowWidth, windowHeight);
 
   up_button.position(windowWidth/2 - 55, windowHeight/2 - windowHeight*3/4/2 - 20);
   down_button.position(windowWidth/2 - 55, windowHeight/2 + windowHeight*3/4/2 - 20);
