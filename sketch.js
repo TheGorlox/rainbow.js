@@ -11,14 +11,16 @@ function windowResized() {
 
 function draw() {
 
+  clear();
+
   tileExistsCriteriaFunction = (i, j, iMax, jMax, phase) => {
     // This is just a sin wave to demo, purpose of this is to allow the map to be modified dynamically in the future
     return Math.abs(j - (jMax-2)/2 * (-Math.sin(i*2*Math.PI/(iMax-1) + 2*Math.PI*(phase%100)/100) + 1)) < 3;
   }
 
-  background(255*Math.sin(frameCount/fps), 255*Math.sin(frameCount/fps + 64), 255*Math.sin(frameCount/fps + 128));
+  background(128*Math.sin(frameCount/fps) + 128, 128*Math.sin(frameCount/fps + 64) + 128, 128*Math.sin(frameCount/fps + 128) + 128);
 
-  colors = [0xFF0000, 0x00FF00, 0x0000FF];
+  colors = ['#FF4235', '#FF933A', '#E2BF31', '#0FE526', '#056BFF', '#B028FF'];
 
   tileGapSize = 8;
   tileCountHoriz = 122;
@@ -30,6 +32,8 @@ function draw() {
 
        x = tileScale * i + tileGapSize*(i+1) + ((windowWidth - tileCountHoriz * (tileScale + tileGapSize) - tileGapSize)/2);
        y = tileScale * j + tileGapSize*(j+1);
+
+       fill(color(colors[(i+j)%(colors.length)]));
 
        if(tileExistsCriteriaFunction(i, j, tileCountHoriz, tileCountVert, frameCount))
         square(x, y, tileScale);
