@@ -5,9 +5,10 @@ function setup() {
   createCanvas(windowWidth, windowHeight);
   frameRate(fps);
   
+  init_inv();
   generate_minimap();
   input_setup();
-  setGamestateMainMenu();
+  setGamestateMenu();
   set_button_positions();
 
 }

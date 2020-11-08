@@ -3,10 +3,10 @@ var minimap = [];
 var minimap_starting_room_obj = new Object();
 
 function set_button_positions() {
-  up_button.position(185,66);
-  down_button.position(185,301);
-  left_button.position(60 ,175);
-  right_button.position(300, 175);
+  up_button.position(windowWidth/2 - 55, windowHeight/2 - windowHeight*3/4/2 - 20);
+  down_button.position(windowWidth/2 - 55, windowHeight/2 + windowHeight*3/4/2 - 20);
+  left_button.position(windowWidth/2 - windowHeight*3/4/2 - 55, windowHeight/2 - 27);
+  right_button.position(windowWidth/2 + windowHeight*3/4/2 - 55, windowHeight/2 - 27);
 }
 
 function generate_minimap() {
@@ -36,14 +36,13 @@ function generate_minimap() {
         minimap[i][j] = Math.floor(Math.random() * 3) + 1;
       }
     }
-  } 
+  }
   
   console.log(minimap);
 
 }
 
 function expand(minimap,i,j,chance, falloff) {
-  console.log("vars: " + i + " " + j + " " + chance);
   if (Math.random() > chance) {
     return;
   }
@@ -62,19 +61,6 @@ function expand(minimap,i,j,chance, falloff) {
   if(i+1 < minimap_size && minimap[i+1][j] === 0) {
     expand(minimap, i+1, j, chance*falloff, falloff);
   }
-}
-
-function draw_menu() {
-
-  fill(color('white'));
-  square(windowWidth/2 - windowHeight*3/4/2, windowHeight/2 - windowHeight*3/4/2, windowHeight*3/4, 20);
-
-  fill(color('black'));
-  textAlign(CENTER);
-
-  textSize(24);
-  text('ROOM TYPE: ' + minimap[player_pos.x][player_pos.y], windowWidth/2, windowHeight/2);
-  
 }
 
 function draw_minimap() {
