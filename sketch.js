@@ -59,7 +59,7 @@ function draw() {
 
   draw_menu();
   draw_minimap();
-
+  draw_progress_bar();
 }
 
 function keyPressed() {

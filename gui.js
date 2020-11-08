@@ -1,3 +1,5 @@
+
+
 function positionButtons() {
   up_button.position(windowWidth/2 - 55, windowHeight/2 - windowHeight*3/4/2 - 20);
   down_button.position(windowWidth/2 - 55, windowHeight/2 + windowHeight*3/4/2 - 20);
@@ -51,4 +53,21 @@ function draw_minimap() {
   fill(color('white'));
   circle(110+player_pos.x*20,110+player_pos.y*20,15);
   
+}
+  
+function draw_progress_bar() {
+  var count = 6;
+  var increment = windowHeight * 0.8 / count;
+  var size = increment * 0.9;
+  var padding = windowHeight * 0.1;
+  var colorlist = [color("red"),color("orange"),color("yellow"),color("green"),color("blue"),color("purple")]
+  var colorsquares = [true, true, true, true, true, true];
+  for (let i=0; i<count; i++) {
+      fill(color("black"));
+      square(windowWidth-increment-5, increment * i + padding, increment);
+      if (colorsquares[i]) {
+          fill(colorlist[i]);
+          square(windowWidth-size-10, increment * i + padding, size);
+      }
+  }
 }
