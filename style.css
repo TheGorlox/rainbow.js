@@ -4,7 +4,7 @@ body {
     overflow: hidden;
 }
 
-button {
+/* button {
     height: 45px;
     width: 110px;
     text-transform: uppercase;
@@ -15,7 +15,7 @@ button {
     border-radius: 2em;
     border-color: red;
     color: #FFF;
-}
+} */
 
 button:focus {
     outline:none;
