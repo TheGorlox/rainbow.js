@@ -23,6 +23,30 @@ function setGamestateRed() {
 
 }
 
+function setGamestateOrange() {
+
+  tileExistsCriteriaFunction = (i, j, iMax, jMax, phase) => {
+    return true;
+  }
+
+  tileGapSize = 0;
+  tileCountHoriz = 12;
+  tileCountVert = 12;
+
+}
+
+function setGamestateYellow() {
+
+  tileExistsCriteriaFunction = (i, j, iMax, jMax, phase) => {
+    return true;
+  }
+
+  tileGapSize = 0;
+  tileCountHoriz = 12;
+  tileCountVert = 12;
+
+}
+
 function setGamestateGreen() {
 
   tileExistsCriteriaFunction = (i, j, iMax, jMax, phase) => {
@@ -36,6 +60,18 @@ function setGamestateGreen() {
 }
 
 function setGamestateBlue() {
+
+  tileExistsCriteriaFunction = (i, j, iMax, jMax, phase) => {
+    return true;
+  }
+
+  tileGapSize = 0;
+  tileCountHoriz = 12;
+  tileCountVert = 12;
+
+}
+
+function setGamestatePurple() {
 
   tileExistsCriteriaFunction = (i, j, iMax, jMax, phase) => {
     return true;
