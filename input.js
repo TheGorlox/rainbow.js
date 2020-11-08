@@ -39,6 +39,7 @@ function on_key_pressed() {
 
   if (key=='r') {
     generate_minimap();
+    draw_level();  
   }
 
   if (key == '1') {
