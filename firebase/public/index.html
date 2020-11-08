@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Rainbow.JS</title>
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.1.9/lib/p5.js"></script>
+    
+    
+
+    
+    <!-- update the version number as needed -->
+    <script defer src="/__/firebase/8.0.1/firebase-app.js"></script>
+    <!-- include only the Firebase features as you need -->
+    <script defer src="/__/firebase/8.0.1/firebase-auth.js"></script>
+    <script defer src="/__/firebase/8.0.1/firebase-database.js"></script>
+    <script defer src="/__/firebase/8.0.1/firebase-firestore.js"></script>
+    <script defer src="/__/firebase/8.0.1/firebase-functions.js"></script>
+    <script defer src="/__/firebase/8.0.1/firebase-messaging.js"></script>
+    <script defer src="/__/firebase/8.0.1/firebase-storage.js"></script>
+    <script defer src="/__/firebase/8.0.1/firebase-analytics.js"></script>
+    <script defer src="/__/firebase/8.0.1/firebase-remote-config.js"></script>
+    <script defer src="/__/firebase/8.0.1/firebase-performance.js"></script>
+     <!-- <script type="script" src="../../p5js/p5.js"></script>  -->
+     
+
+    <!-- 
+      initialize the SDK after all desired features are loaded, set useEmulator to false
+      to avoid connecting the SDK to running emulators.
+    -->
+    <script defer src="/__/firebase/init.js?useEmulator=true"></script>
+    <!-- <link rel="stylesheet" type="text/css" href="../../style.css"> -->
+    <style>
+     body {
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+}
+
+button {
+    height: 45px;
+    width: 110px;
+    text-transform: uppercase;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 18pt;
+    background-color: #445;
+    border-radius: 2em;
+    border-color: red;
+    color: #FFF;
+}
+
+button:focus {
+    outline:none;
+}
+
+    </style>
+  <script type="script" src="/gamestate.js"></script>
+  <script type="script" src="/gui.js"></script>
+  <script type="script" src="/input.js"></script>
+  <script type="script" src="/level.js"></script>
+  <script type="script" src="/player.js"></script>
+    
+  </head>
+  <body>
+    
+    <script  src="sketch.js"></script>
+    <main></main>
+  </body>
+</html>
