@@ -3,6 +3,8 @@ var tileGapSize;
 var tileCountHoriz;
 var tileCountVert;
 
+colors = ['#FF4235', '#FF933A', '#E2BF31', '#0FE526', '#056BFF', '#B028FF'];
+
 function draw_level() {
 
   tileScale = ((windowHeight - 2*tileGapSize) / tileCountVert) - tileGapSize;

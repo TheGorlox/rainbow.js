@@ -1,5 +1,4 @@
 fps = 2**5;
-colors = ['#FF4235', '#FF933A', '#E2BF31', '#0FE526', '#056BFF', '#B028FF'];
 
 function setup() {
 
@@ -8,11 +7,11 @@ function setup() {
   
   generate_minimap();
   
-  setupInput();
+  input_setup();
 
   setGamestateMainMenu();
 
-  positionButtons();
+  set_button_positions();
 
 }
 
@@ -20,7 +19,7 @@ function windowResized() {
 
   resizeCanvas(windowWidth, windowHeight);
 
-  positionButtons();
+  set_button_positions();
 
 }
 
@@ -35,4 +34,8 @@ function draw() {
   draw_minimap();
   draw_progress_bar();
 
+}
+
+function keyPressed() {
+	on_key_pressed();
 }

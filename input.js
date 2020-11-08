@@ -3,7 +3,7 @@ var down_button;
 var left_button;
 var right_button;
 
-function setupInput() {
+function input_setup() {
   up_button = createButton('up');
   down_button = createButton('down');
   left_button = createButton('left');
@@ -15,7 +15,7 @@ function setupInput() {
   right_button.mousePressed(go_right);
 }
 
-function keyPressed() {
+function on_key_pressed() {
   let keyIndex = -1;
   if (key == 'w' || keyCode == UP_ARROW) {
     go_up();

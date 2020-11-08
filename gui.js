@@ -2,7 +2,7 @@ var minimap_size = 10;
 var minimap = [];
 var minimap_starting_room_obj = new Object();
 
-function positionButtons() {
+function set_button_positions() {
   up_button.position(windowWidth/2 - 55, windowHeight/2 - windowHeight*3/4/2 - 20);
   down_button.position(windowWidth/2 - 55, windowHeight/2 + windowHeight*3/4/2 - 20);
   left_button.position(windowWidth/2 - windowHeight*3/4/2 - 55, windowHeight/2 - 27);
@@ -27,29 +27,8 @@ function generate_minimap() {
   
   let run = true;
   
-  while(run) {
-    run = false;
-    for(let i = 0; i < minimap_size; ++i) {
-      for(let j = 0; j < minimap_size; ++j) {
-        if(minimap[i][j] === 1) {
-          run = true;
-          minimap[i][j] = 2;
-          if(j-1 > 0 && minimap[i][j-1] === 0 && Math.random() < 0.4) {
-            minimap[i][j-1] = 1;
-          }
-          if(j+1 < minimap_size && minimap[i][j+1] === 0 && Math.random() < 0.4) {
-            minimap[i][j+1] = 1;
-          }
-          if(i-1 > 0 && minimap[i-1][j] === 0 && Math.random() < 0.4) {
-            minimap[i-1][j] = 1;
-          }
-          if(i+1 < minimap_size && minimap[i+1][j] === 0 && Math.random() < 0.4) {
-            minimap[i+1][j] = 1;
-          }
-        }
-      }
-    }
-  }
+  console.log()
+  expand(minimap, minimap_starting_room_obj.x, minimap_starting_room_obj.y, 1.5, 0.7);
   
   for(let i = 0; i < minimap_size; ++i) {
     for(let j = 0; j < minimap_size; ++j) {
@@ -61,6 +40,28 @@ function generate_minimap() {
   
   console.log(minimap);
 
+}
+
+function expand(minimap,i,j,chance, falloff) {
+  console.log("vars: " + i + " " + j + " " + chance);
+  if (Math.random() > chance) {
+    return;
+  }
+
+  minimap[i][j] = 1;
+
+  if(j-1 > 0 && minimap[i][j-1] === 0) {
+    expand(minimap, i, j-1, chance*falloff, falloff);
+  }
+  if(j+1 < minimap_size && minimap[i][j+1] === 0 ) {
+    expand(minimap, i, j+1, chance*falloff, falloff);
+  }
+  if(i-1 > 0 && minimap[i-1][j] === 0) {
+    expand(minimap, i-1, j, chance*falloff, falloff);
+  }
+  if(i+1 < minimap_size && minimap[i+1][j] === 0) {
+    expand(minimap, i+1, j, chance*falloff, falloff);
+  }
 }
 
 function draw_menu() {
