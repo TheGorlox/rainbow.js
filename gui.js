@@ -14,16 +14,16 @@ function draw_menu() {
   textAlign(CENTER);
 
   textSize(24);
-  text('ROOM TYPE: ' + map[player_pos.x][player_pos.y], windowWidth/2, windowHeight/2);
+  text('ROOM TYPE: ' + minimap[player_pos.x][player_pos.y], windowWidth/2, windowHeight/2);
   
 }
 
 function draw_minimap() {
 
-  for(let i = 0; i < map_size; ++i) {
-    for(let j = 0; j < map_size; ++j) {
+  for(let i = 0; i < minimap_size; ++i) {
+    for(let j = 0; j < minimap_size; ++j) {
 
-      switch(map[i][j]) {
+      switch(minimap[i][j]) {
 
         case 0:
         fill(color('black'));

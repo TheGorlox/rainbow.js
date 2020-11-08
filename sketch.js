@@ -1,10 +1,6 @@
-var map_size = 10;
-var map = [];
+var minimap_size = 10;
+var minimap = [];
 var starting_room = new Object();
-var up_button;
-var down_button;
-var left_button;
-var right_button;
 
 fps = 2**5;
 
@@ -15,15 +11,7 @@ function setup() {
   
   make_map();
   
-  up_button = createButton('up');
-  down_button = createButton('down');
-  left_button = createButton('left');
-  right_button = createButton('right');
-
-  up_button.mousePressed(go_up);
-  down_button.mousePressed(go_down);
-  left_button.mousePressed(go_left);
-  right_button.mousePressed(go_right);
+  setupInput();
 
   positionButtons();
 
