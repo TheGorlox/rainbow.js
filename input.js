@@ -32,11 +32,23 @@ function on_key_pressed() {
   }
 
   if (key == '1') {
-    setGamestateMainMenu();
+    setGamestateMenu();
   }
 
   if (key == '2') {
-    setGamestateTest1();
+    setGamestateRed();
+  }
+
+  if (key == '3') {
+    setGamestateGreen();
+  }
+
+  if (key == '4') {
+    setGamestateBlue();
+  }
+
+  if (key == '0') {
+    die();
   }
 
 }

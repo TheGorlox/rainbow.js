@@ -31,3 +31,8 @@ function go_right() {
     return;
   player_pos.x += 1;
 }
+
+function die() {
+  player_pos.x = minimap_starting_room_obj.x;
+  player_pos.y = minimap_starting_room_obj.y;
+}

@@ -7,7 +7,7 @@ function setup() {
   
   generate_minimap();
   input_setup();
-  setGamestateMainMenu();
+  setGamestateMenu();
   set_button_positions();
 
 }
