@@ -43,7 +43,6 @@ function generate_minimap() {
 }
 
 function expand(minimap,i,j,chance, falloff) {
-  console.log("vars: " + i + " " + j + " " + chance);
   if (Math.random() > chance) {
     return;
   }
@@ -62,19 +61,6 @@ function expand(minimap,i,j,chance, falloff) {
   if(i+1 < minimap_size && minimap[i+1][j] === 0) {
     expand(minimap, i+1, j, chance*falloff, falloff);
   }
-}
-
-function draw_menu() {
-
-  fill(color('white'));
-  square(windowWidth/2 - windowHeight*3/4/2, windowHeight/2 - windowHeight*3/4/2, windowHeight*3/4, 20);
-
-  fill(color('black'));
-  textAlign(CENTER);
-
-  textSize(24);
-  text('ROOM TYPE: ' + minimap[player_pos.x][player_pos.y], windowWidth/2, windowHeight/2);
-  
 }
 
 function draw_minimap() {

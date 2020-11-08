@@ -10,3 +10,16 @@ function setGamestateMainMenu() {
   tileCountVert = 60;
 
 }
+
+function setGamestateTest1() {
+
+  tileExistsCriteriaFunction = (i, j, iMax, jMax, phase) => {
+    // This is just a sin wave to demo, purpose of this is to allow the map to be modified dynamically in the future
+    return Math.abs(jMax/2 - j) < 2;
+  }
+
+  tileGapSize = 0;
+  tileCountHoriz = 12;
+  tileCountVert = 12;
+
+}

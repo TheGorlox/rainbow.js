@@ -26,4 +26,17 @@ function on_key_pressed() {
   } else if (key == 'd' || keyCode == RIGHT_ARROW) {
     go_right();
   } 
+
+  if (key=='r') {
+    generate_minimap();
+  }
+
+  if (key == '1') {
+    setGamestateMainMenu();
+  }
+
+  if (key == '2') {
+    setGamestateTest1();
+  }
+
 }
