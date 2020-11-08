@@ -1,4 +1,14 @@
 var player_pos;
+var player_inv = new Object();
+
+function init_inv() {
+  player_inv.red = false;
+  player_inv.orange = false;
+  player_inv.yellow = false;
+  player_inv.green = false;
+  player_inv.blue = false;
+  player_inv.violet = false;
+}
 
 function go_up() {
   if(player_pos.y - 1 < 0)
