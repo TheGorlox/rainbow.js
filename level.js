@@ -2,7 +2,9 @@ var tileExistsCriteriaFunction;
 var tileGapSize;
 var tileCountHoriz;
 var tileCountVert;
-// define colors
+
+function draw_level() {
+  // define colors
 var black = [0,0,0];
 var b = [0,255,0];
 var teal = [0,128,128];
@@ -16,12 +18,13 @@ var purple = [128,0,128];
 var grey = [100,100,100];
 var colors = [black, white, g,grey,orange,yellow,purple,teal,r,b];
 var cols, rows;
-var scl = 40;
-function draw_level() {
+var scl = 41;
 
   cols = floor(width/scl)
   rows = floor(height/scl)
-  
+  // ROWx10 (row___)
+  // colx1 (ROWCOL) FOR SEED
+  noiseSeed(player_pos.x*10+player_pos.y);
   background(255);
   var yoff=0;
   for(let y=0;y<rows;y++){
@@ -36,20 +39,5 @@ function draw_level() {
       rect(x*scl, y*scl, scl, scl);
     }
     yoff+=.1;
-    
   }
-  // for (var i=0; i<tileCountHoriz; i++) {
-  //   for (var j=0; j<tileCountVert; j++) {
-
-  //     x = tileScale * i + tileGapSize*(i+1) + ((windowWidth - tileCountHoriz * (tileScale + tileGapSize) - tileGapSize)/2);
-  //     y = tileScale * j + tileGapSize*(j+1);
-
-  //     fill(color(colors[(i+j)%(colors.length)]));
-
-  //     if(tileExistsCriteriaFunction(i, j, tileCountHoriz, tileCountVert, frameCount))
-  //       square(x, y, tileScale);
-
-  //   }
-  // }
-
 }

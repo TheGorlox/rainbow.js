@@ -19,6 +19,7 @@ function go_up() {
     return;
   if(minimap[player_pos.x][player_pos.y - 1] == 0)
     return;
+  draw_level();  
   add_current_color_to_inv();
   player_pos.y -= 1;
 }
@@ -28,6 +29,7 @@ function go_down() {
     return;
   if(minimap[player_pos.x][player_pos.y + 1] == 0)
     return;
+  draw_level();
   add_current_color_to_inv();
   player_pos.y += 1;
 }
@@ -37,6 +39,7 @@ function go_left() {
     return;
   if(minimap[player_pos.x - 1][player_pos.y] == 0)
     return;
+  draw_level();
   add_current_color_to_inv();
   player_pos.x -= 1;
 }
@@ -46,6 +49,7 @@ function go_right() {
     return;
   if(minimap[player_pos.x + 1][player_pos.y] == 0)
     return;
+  draw_level();
   add_current_color_to_inv();
   player_pos.x += 1;
 }
