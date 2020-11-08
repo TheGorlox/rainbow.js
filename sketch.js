@@ -6,11 +6,16 @@ function setup() {
   frameRate(fps);
   
   generate_minimap();
+<<<<<<< HEAD
   
   input_setup();
 
   setGamestateMainMenu();
 
+=======
+  input_setup();
+  setGamestateMainMenu();
+>>>>>>> aeee9c9fd91c69f239d2dec602c97513eaf2ec97
   set_button_positions();
 
 }
@@ -37,5 +42,10 @@ function draw() {
 }
 
 function keyPressed() {
+<<<<<<< HEAD
 	on_key_pressed();
 }
+=======
+  on_key_pressed();
+}
+>>>>>>> aeee9c9fd91c69f239d2dec602c97513eaf2ec97
