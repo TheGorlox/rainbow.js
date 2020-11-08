@@ -30,4 +30,13 @@ function on_key_pressed() {
   if (key=='r') {
     generate_minimap();
   }
+
+  if (key == '1') {
+    setGamestateMainMenu();
+  }
+
+  if (key == '2') {
+    setGamestateTest1();
+  }
+
 }
