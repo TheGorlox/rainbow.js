@@ -43,7 +43,6 @@ function generate_minimap() {
 }
 
 function expand(minimap,i,j,chance, falloff) {
-  console.log("vars: " + i + " " + j + " " + chance);
   if (Math.random() > chance) {
     return;
   }
