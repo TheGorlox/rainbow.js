@@ -113,18 +113,28 @@ function draw_minimap() {
 }
   
 function draw_progress_bar() {
-  var count = 6;
-  var increment = windowHeight * 0.8 / count;
-  var size = increment * 0.9;
-  var padding = windowHeight * 0.1;
-  var colorlist = [color("red"),color("orange"),color("yellow"),color("green"),color("blue"),color("purple")]
-  var colorsquares = [true, true, true, true, true, true];
-  for (let i=0; i<count; i++) {
-      fill(color("black"));
-      square(windowWidth - increment - 5, increment * i + padding, increment);
-      if (colorsquares[i]) {
-          fill(colorlist[i]);
-          square(windowWidth - increment - 5 + (increment-size)/2, increment * i + padding + (increment-size)/2, size);
-      }
+  let count = 6;
+  let increment = windowHeight * 0.8 / count;
+  let size = increment * 0.9;
+  let padding = windowHeight * 0.1;
+  
+  strokeWeight(4);
+  
+  let colors = ['red', 'orange', 'yellow', 'green', 'blue', 'violet'];
+  
+  for(let i = 0; i < 6; i++) {
+  	stroke(color('black'));
+  	fill(color("black"));
+  	square(windowWidth - increment - 5, increment * i + padding, increment);
+	  stroke(color(colors[i]));
+	  if(player_inv[colors[i]]) {
+	    fill(colors[i]);
+	  } else {
+	  	fill('black');
+	  }
+	  square(windowWidth - increment - 5 + (increment-size)/2, increment * i + padding + (increment-size)/2, size);
   }
+  
+  strokeWeight(1);
+  stroke(color('black'));
 }
