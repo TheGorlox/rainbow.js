@@ -7,6 +7,8 @@ var down_button;
 var left_button;
 var right_button;
 
+var colorsquares = [];
+
 fps = 2**5;
 
 function make_map() {
@@ -16,6 +18,7 @@ function make_map() {
 		  map[i][j] = 0;
 	  }
   }
+  
   
   starting_room.x = Math.floor(Math.random() * 10); 
   starting_room.y = Math.floor(Math.random() * 10); 
@@ -82,6 +85,8 @@ function setup() {
   right_button = createButton('right');
   right_button.position(windowWidth/2 + windowHeight*3/4/2 - 55, windowHeight/2 - 27);
   right_button.mousePressed(go_right);
+
+  colorsquares = [false, true, true, false, true, true];
 }
 
 function keyPressed() {
@@ -170,6 +175,7 @@ function draw() {
     }
   }
 	draw_ui();
+	draw_progress_bar();
 }
 
 function draw_ui() {
@@ -182,6 +188,22 @@ function draw_ui() {
   textSize(24);
 	text('ROOM TYPE: ' + map[player_pos.x][player_pos.y], windowWidth/2, windowHeight/2);
 	
+}
+
+function draw_progress_bar() {
+	var count = 6;
+	var increment = windowHeight * 0.8 / count;
+	var size = increment * 0.9;
+	var padding = windowHeight * 0.1;
+	var colorlist = [color("red"),color("orange"),color("yellow"),color("green"),color("blue"),color("purple")]
+	for (let i=0; i<count; i++) {
+		fill(color("black"));
+		square(windowWidth-increment-5, increment * i + padding, increment);
+		if (colorsquares[i]) {
+			fill(colorlist[i]);
+			square(windowWidth-size-10, increment * i + padding, size);
+		}
+	}
 }
 
 function draw_map() {
