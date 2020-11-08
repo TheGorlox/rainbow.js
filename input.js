@@ -26,4 +26,8 @@ function on_key_pressed() {
   } else if (key == 'd' || keyCode == RIGHT_ARROW) {
     go_right();
   } 
+
+  if (key=='r') {
+    generate_minimap();
+  }
 }
