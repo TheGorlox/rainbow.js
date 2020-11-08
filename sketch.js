@@ -50,7 +50,7 @@ function draw() {
 
   colors = ['#FF4235', '#FF933A', '#E2BF31', '#0FE526', '#056BFF', '#B028FF'];
 
-  tileGapSize = 8;
+  tileGapSize = 3;
   tileCountHoriz = 122;
   tileCountVert = 60;
   var tileScale = ((windowHeight - 2*tileGapSize) / tileCountVert) - tileGapSize;
