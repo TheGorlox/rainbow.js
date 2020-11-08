@@ -29,11 +29,12 @@ function generate_minimap() {
   
   console.log()
   expand(minimap, minimap_starting_room_obj.x, minimap_starting_room_obj.y, 1.5, 0.7);
+  let colors = ['red', 'orange', 'yellow', 'green', 'blue', 'violet'];
   
   for(let i = 0; i < minimap_size; ++i) {
     for(let j = 0; j < minimap_size; ++j) {
       if(minimap[i][j] != 0) {
-        minimap[i][j] = Math.floor(Math.random() * 3) + 1;
+        minimap[i][j] = colors[Math.floor(Math.random() * 6)];
       }
     }
   }
@@ -74,16 +75,8 @@ function draw_minimap() {
         fill(color('black'));
         break;
         
-        case 1:
-        fill(color('red'));
-        break;
-        
-        case 2:
-        fill(color('blue'));
-        break;
-        
-        case 3:
-        fill(color('green'));
+        default:
+        fill(color(minimap[i][j]));
         break;
         
       }
