@@ -99,19 +99,6 @@ function expand(minimap,i,j,chance, falloff, rooms_left) {
   return true;
 }
 
-function draw_menu() {
-
-  fill(color('white'));
-  square(windowWidth/2 - windowHeight*3/4/2, windowHeight/2 - windowHeight*3/4/2, windowHeight*3/4, 20);
-
-  fill(color('black'));
-  textAlign(CENTER);
-
-  textSize(24);
-  text('ROOM TYPE: ' + minimap[player_pos.x][player_pos.y], windowWidth/2, windowHeight/2);
-  
-}
-
 function draw_minimap() {
 
   for(let i = 0; i < minimap_size; ++i) {
