@@ -3,10 +3,10 @@ var minimap = [];
 var minimap_starting_room_obj = new Object();
 
 function set_button_positions() {
-  up_button.position(windowWidth/2 - 55, windowHeight/2 - windowHeight*3/4/2 - 20);
-  down_button.position(windowWidth/2 - 55, windowHeight/2 + windowHeight*3/4/2 - 20);
-  left_button.position(windowWidth/2 - windowHeight*3/4/2 - 55, windowHeight/2 - 27);
-  right_button.position(windowWidth/2 + windowHeight*3/4/2 - 55, windowHeight/2 - 27);
+  up_button.position(185,66);
+  down_button.position(185,301);
+  left_button.position(60 ,175);
+  right_button.position(300, 175);
 }
 
 function generate_minimap() {
