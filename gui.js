@@ -3,10 +3,10 @@ var minimap = [];
 var minimap_starting_room_obj = new Object();
 
 function set_button_positions() {
-  up_button.position(185,66);
-  down_button.position(185,301);
-  left_button.position(60 ,175);
-  right_button.position(300, 175);
+  up_button.position(windowWidth/2 - 55, windowHeight/2 - windowHeight*3/4/2 - 20);
+  down_button.position(windowWidth/2 - 55, windowHeight/2 + windowHeight*3/4/2 - 20);
+  left_button.position(windowWidth/2 - windowHeight*3/4/2 - 55, windowHeight/2 - 27);
+  right_button.position(windowWidth/2 + windowHeight*3/4/2 - 55, windowHeight/2 - 27);
 }
 
 function generate_minimap() {
@@ -29,22 +29,20 @@ function generate_minimap() {
   
   console.log()
   expand(minimap, minimap_starting_room_obj.x, minimap_starting_room_obj.y, 1.5, 0.7);
-  let colors = ['red', 'orange', 'yellow', 'green', 'blue', 'violet'];
   
   for(let i = 0; i < minimap_size; ++i) {
     for(let j = 0; j < minimap_size; ++j) {
       if(minimap[i][j] != 0) {
-        minimap[i][j] = colors[Math.floor(Math.random() * 6)];
+        minimap[i][j] = Math.floor(Math.random() * 3) + 1;
       }
     }
-  } 
+  }
   
   console.log(minimap);
 
 }
 
 function expand(minimap,i,j,chance, falloff) {
-  console.log("vars: " + i + " " + j + " " + chance);
   if (Math.random() > chance) {
     return;
   }
@@ -65,19 +63,6 @@ function expand(minimap,i,j,chance, falloff) {
   }
 }
 
-function draw_menu() {
-
-  fill(color('white'));
-  square(windowWidth/2 - windowHeight*3/4/2, windowHeight/2 - windowHeight*3/4/2, windowHeight*3/4, 20);
-
-  fill(color('black'));
-  textAlign(CENTER);
-
-  textSize(24);
-  text('ROOM TYPE: ' + minimap[player_pos.x][player_pos.y], windowWidth/2, windowHeight/2);
-  
-}
-
 function draw_minimap() {
 
   for(let i = 0; i < minimap_size; ++i) {
@@ -89,8 +74,16 @@ function draw_minimap() {
         fill(color('black'));
         break;
         
-        default:
-        fill(color(minimap[i][j]));
+        case 1:
+        fill(color('red'));
+        break;
+        
+        case 2:
+        fill(color('blue'));
+        break;
+        
+        case 3:
+        fill(color('green'));
         break;
         
       }
@@ -106,28 +99,18 @@ function draw_minimap() {
 }
   
 function draw_progress_bar() {
-  let count = 6;
-  let increment = windowHeight * 0.8 / count;
-  let size = increment * 0.9;
-  let padding = windowHeight * 0.1;
-  
-  strokeWeight(4);
-  
-  let colors = ['red', 'orange', 'yellow', 'green', 'blue', 'violet'];
-  
-  for(let i = 0; i < 6; i++) {
-  	stroke(color('black'));
-  	fill(color("black"));
-  	square(windowWidth - increment - 5, increment * i + padding, increment);
-	  stroke(color(colors[i]));
-	  if(player_inv[colors[i]]) {
-	    fill(colors[i]);
-	  } else {
-	  	fill('black');
-	  }
-	  square(windowWidth - increment - 5 + (increment-size)/2, increment * i + padding + (increment-size)/2, size);
+  var count = 6;
+  var increment = windowHeight * 0.8 / count;
+  var size = increment * 0.9;
+  var padding = windowHeight * 0.1;
+  var colorlist = [color("red"),color("orange"),color("yellow"),color("green"),color("blue"),color("purple")]
+  var colorsquares = [true, true, true, true, true, true];
+  for (let i=0; i<count; i++) {
+      fill(color("black"));
+      square(windowWidth - increment - 5, increment * i + padding, increment);
+      if (colorsquares[i]) {
+          fill(colorlist[i]);
+          square(windowWidth - increment - 5 + (increment-size)/2, increment * i + padding + (increment-size)/2, size);
+      }
   }
-  
-  strokeWeight(1);
-  stroke(color('black'));
 }

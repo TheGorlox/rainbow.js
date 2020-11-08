@@ -49,3 +49,8 @@ function go_right() {
   add_current_color_to_inv();
   player_pos.x += 1;
 }
+
+function die() {
+  player_pos.x = minimap_starting_room_obj.x;
+  player_pos.y = minimap_starting_room_obj.y;
+}
