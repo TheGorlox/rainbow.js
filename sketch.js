@@ -27,7 +27,6 @@ function draw() {
   background(128*Math.sin(frameCount/fps) + 128, 128*Math.sin(frameCount/fps + 64) + 128, 128*Math.sin(frameCount/fps + 128) + 128);
 
   draw_level();
-  draw_menu();
   draw_minimap();
   draw_progress_bar();
 
