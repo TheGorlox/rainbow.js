@@ -2,7 +2,7 @@ var minimap_size = 10;
 var minimap = [];
 var minimap_starting_room_obj = new Object();
 
-function positionButtons() {
+function set_button_positions() {
   up_button.position(windowWidth/2 - 55, windowHeight/2 - windowHeight*3/4/2 - 20);
   down_button.position(windowWidth/2 - 55, windowHeight/2 + windowHeight*3/4/2 - 20);
   left_button.position(windowWidth/2 - windowHeight*3/4/2 - 55, windowHeight/2 - 27);
