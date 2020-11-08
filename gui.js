@@ -64,10 +64,10 @@ function draw_progress_bar() {
   var colorsquares = [true, true, true, true, true, true];
   for (let i=0; i<count; i++) {
       fill(color("black"));
-      square(windowWidth-increment-5, increment * i + padding, increment);
+      square(windowWidth - increment - 5, increment * i + padding, increment);
       if (colorsquares[i]) {
           fill(colorlist[i]);
-          square(windowWidth-size-10, increment * i + padding, size);
+          square(windowWidth - increment - 5 + (increment-size)/2, increment * i + padding + (increment-size)/2, size);
       }
   }
 }
