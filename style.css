@@ -16,3 +16,7 @@ button {
     border-color: red;
     color: #FFF;
 }
+
+button:focus {
+    outline:none;
+}
